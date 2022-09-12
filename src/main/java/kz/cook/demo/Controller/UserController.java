@@ -7,11 +7,10 @@ import kz.cook.demo.Entity.User;
 import kz.cook.demo.Exception.UserNotFoundException;
 import kz.cook.demo.Service.UserService;
 import kz.cook.demo.responses.UserResponse;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-@Slf4j
+
 @RestController
 public class UserController {
 
@@ -48,7 +47,6 @@ public class UserController {
 
     @RequestMapping(value="/users/{userId}",method= RequestMethod.PUT, headers = "Accept=application/json")
     public ResponseEntity<Void> updateOneUser(@PathVariable Long userId, @RequestBody User newUser) {
-        log.info (String.valueOf (newUser));
         User user = userService.updateOneUser(userId, newUser);
         if(user != null)
             return new ResponseEntity<>(HttpStatus.OK);
