@@ -21,10 +21,7 @@ public class UserController {
     }
 
 
-    @RequestMapping(value="/users",method= RequestMethod.GET, headers = "Accept=application/json")
-    public List<UserResponse> getAllUsers(){
-        return userService.getAllUsers().stream().map(u -> new UserResponse(u)).collect(Collectors.toList());
-    }
+ 
 
 
     @RequestMapping(value="/users",method= RequestMethod.POST, headers = "Accept=application/json")
